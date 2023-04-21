@@ -1,0 +1,176 @@
+swagger: "2.0"
+info:
+  title: beego 中药 API
+  description: |
+    中药相关接口，包括用户、banner、中药、药方等
+  version: 1.0.0
+  contact:
+    email: 2366850717@qq.com
+basePath: /api
+paths:
+  /banner/list:
+    get:
+      tags:
+      - banner
+      description: |-
+        查询全部banner
+        <br>
+      operationId: BannerController.查询banner列表
+      responses:
+        "200":
+          description: a error response object
+  /chineseHerb/list:
+    get:
+      tags:
+      - chineseHerb
+      description: |-
+        通过条件查询用户列表
+        <br>
+      operationId: ChineseHerbController.查询用户列表
+      responses:
+        "200":
+          description: a error response object
+  /upload/img:
+    post:
+      tags:
+      - upload
+      description: |-
+        图片上传
+        <br>
+      operationId: UploadController.图片上传
+      parameters:
+      - in: formData
+        name: file
+        description: upload img
+        required: true
+        type: array
+        items:
+          type: string
+          format: byte
+      responses:
+        "200":
+          description: error response object
+  /user/add:
+    post:
+      tags:
+      - user
+      description: |-
+        新增用户
+        <br>
+      operationId: UserController.新增用户
+      parameters:
+      - in: body
+        name: body
+        description: body for user content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "200":
+          description: error response object
+  /user/get/{id}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过id查找用户详情
+        <br>
+      operationId: UserController.查找用户
+      responses:
+        "200":
+          description: a error response object
+  /user/list:
+    get:
+      tags:
+      - user
+      description: |-
+        通过条件查询用户列表
+        <br>
+      operationId: UserController.查询用户列表
+      responses:
+        "200":
+          description: a error response object
+definitions:
+  models.Base:
+    title: Base
+    type: object
+    properties:
+      CreateBy:
+        type: integer
+        format: int64
+      CreateTime:
+        type: string
+        format: datetime
+      Deleted:
+        type: integer
+        format: int32
+      UpdateBy:
+        type: integer
+        format: int64
+      UpdateTime:
+        type: string
+        format: datetime
+  models.Response:
+    title: Response
+    type: object
+    properties:
+      Code:
+        type: integer
+        format: int64
+      Data:
+        $ref: '#/definitions/models.interface'
+      Message:
+        type: string
+  models.User:
+    title: User
+    type: object
+    properties:
+      CreateBy:
+        type: integer
+        format: int64
+      CreateTime:
+        type: string
+        format: datetime
+      Deleted:
+        type: integer
+        format: int32
+      Desc:
+        type: string
+      Email:
+        type: string
+      Face:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Mobile:
+        type: string
+      Name:
+        type: string
+      Password:
+        type: string
+      Sex:
+        type: integer
+        format: int32
+      UpdateBy:
+        type: integer
+        format: int64
+      UpdateTime:
+        type: string
+        format: datetime
+  models.interface:
+    title: interface
+    type: object
+tags:
+- name: user
+  description: |
+    用户API
+- name: banner
+  description: |
+    横幅API
+- name: chineseHerb
+  description: |
+    中药API
+- name: upload
+  description: |
+    上传api
