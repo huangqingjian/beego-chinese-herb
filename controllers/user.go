@@ -40,7 +40,7 @@ func (u *UserController) AddUser() {
 			panic(any(models.NewParamError(err.Message)))
 		}
 	}
-	result, err := models.AddUser(user)
+	result, err := models.AddUser(&user)
 	if err != nil {
 		panic(any(models.NewParamError("error.userinsert")))
 	}

@@ -14,7 +14,7 @@ var(
 )
 
 // 初始化日志
-func init() {
+func InitLOG() {
 	// 滚动日志
 	logConf := make(map[string]interface{})
 	logConf[fileName], _ = web.AppConfig.String(log + constant.SMH + fileName)

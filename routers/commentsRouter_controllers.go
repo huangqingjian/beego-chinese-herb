@@ -18,6 +18,15 @@ func init() {
 
     beego.GlobalControllerRouter["beego-chinese-herb/controllers:ChineseHerbController"] = append(beego.GlobalControllerRouter["beego-chinese-herb/controllers:ChineseHerbController"],
         beego.ControllerComments{
+            Method: "GetChineseHerb",
+            Router: "/get/:id",
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["beego-chinese-herb/controllers:ChineseHerbController"] = append(beego.GlobalControllerRouter["beego-chinese-herb/controllers:ChineseHerbController"],
+        beego.ControllerComments{
             Method: "GetChineseHerbList",
             Router: "/list",
             AllowHTTPMethods: []string{"get"},

@@ -14,7 +14,7 @@ var (
 )
 
 // 初始化数据库
-func init() {
+func InitDB() {
 	//数据库连接
 	sqlDriver, _ := web.AppConfig.String(sqlDriver)
 	sqlConn, _ := web.AppConfig.String(sqlConn)

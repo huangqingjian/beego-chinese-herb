@@ -1,12 +1,17 @@
 package main
 
 import (
-	_ "beego-chinese-herb/component"
+	"beego-chinese-herb/component"
 	_ "beego-chinese-herb/routers"
 	"github.com/beego/beego/v2/adapter/toolbox"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
+
+func init()  {
+	// 初始化web配置
+	component.InitWebConfig()
+}
 
 func main() {
 	// 开启定时任务

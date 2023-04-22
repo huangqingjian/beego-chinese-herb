@@ -20,7 +20,8 @@ var (
 	redisCollection = redis + constant.SMH + "collection"
 )
 
-func init() {
+// 初始化redis
+func InitRedis() {
 	redisHost, _ := web.AppConfig.String(redisHost)
 	redisPort, _ := web.AppConfig.String(redisPort)
 	redisPassword, _ := web.AppConfig.String(redisPassword)

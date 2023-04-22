@@ -43,9 +43,9 @@ func (u *User) TableName() string {
 }
 
 // 插入用户
-func AddUser(user User) (int64, error) {
+func AddUser(u *User) (int64, error) {
 	o := orm.NewOrm()
-	id, err := o.Insert(&user)
+	id, err := o.Insert(u)
 	if err != nil {
 		return 0, err
 	}
@@ -53,23 +53,23 @@ func AddUser(user User) (int64, error) {
 }
 
 // 带事务式插入用户
-func AddUserWithTrans(user User) (int64, error) {
+func AddUserWithTrans(u *User) (int64, error) {
 	o := orm.NewOrm()
 	err := o.DoTx(func(ctx context.Context, txOrm orm.TxOrmer) error {
-		id, err := o.Insert(&user)
-		user.Id = id
+		id, err := o.Insert(u)
+		u.Id = id
 		return err
 	})
 	if err != nil {
 		return 0, err
 	}
-	return user.Id, nil
+	return u.Id, nil
 }
 
 // 更新用户
-func UpdateUser(user User) (int64, error) {
+func UpdateUser(u *User) (int64, error) {
 	o := orm.NewOrm()
-	count, err := o.Update(&user)
+	count, err := o.Update(u)
 	if err != nil {
 		return 0, err
 	}
@@ -77,20 +77,20 @@ func UpdateUser(user User) (int64, error) {
 }
 
 // 带事务式更新用户
-func UpdateUserWithTrans(user User) error {
+func UpdateUserWithTrans(u *User) error {
 	o := orm.NewOrm()
 	err := o.DoTx(func(ctx context.Context, txOrm orm.TxOrmer) error {
-		_, err := o.Update(&user)
+		_, err := o.Update(u)
 		return err
 	})
 	return err
 }
 
 // 删除用户
-func DeleteUser(user User) (int64, error) {
+func DeleteUser(u *User) (int64, error) {
 	o := orm.NewOrm()
-	user.Deleted = 1
-	count, err := o.Update(&user, "deleted")
+	u.Deleted = 1
+	count, err := o.Update(u, "deleted")
 	if err != nil {
 		return 0, err
 	}
@@ -98,10 +98,10 @@ func DeleteUser(user User) (int64, error) {
 }
 
 // 带事务式删除用户
-func DeleteUserWithTrans(user User) error {
+func DeleteUserWithTrans(u *User) error {
 	o := orm.NewOrm()
 	err := o.DoTx(func(ctx context.Context, txOrm orm.TxOrmer) error {
-		_, err := o.Update(&user, "deleted")
+		_, err := o.Update(u, "deleted")
 		return err
 	})
 	return err

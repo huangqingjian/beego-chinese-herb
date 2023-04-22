@@ -23,19 +23,19 @@ func init() {
 }
 
 // 自定义函数验证
-func (u *Banner) Valid(v * validation.Validation) {
+func (b *Banner) Valid(v * validation.Validation) {
 
 }
 
 // 自定义表名
-func (u *Banner) TableName() string {
+func (b *Banner) TableName() string {
 	return "tbl_banner"
 }
 
 // 插入banner
-func AddBanner(banner Banner) (int64, error) {
+func AddBanner(b *Banner) (int64, error) {
 	o := orm.NewOrm()
-	id, err := o.Insert(&banner)
+	id, err := o.Insert(b)
 	if err != nil {
 		return 0, err
 	}
@@ -44,9 +44,9 @@ func AddBanner(banner Banner) (int64, error) {
 
 
 // 更新banner
-func UpdateBanner(banner Banner) (int64, error) {
+func UpdateBanner(b *Banner) (int64, error) {
 	o := orm.NewOrm()
-	count, err := o.Update(&banner)
+	count, err := o.Update(b)
 	if err != nil {
 		return 0, err
 	}
@@ -54,10 +54,10 @@ func UpdateBanner(banner Banner) (int64, error) {
 }
 
 // 删除banner
-func DeleteBanner(banner Banner) (int64, error) {
+func DeleteBanner(b *Banner) (int64, error) {
 	o := orm.NewOrm()
-	banner.Deleted = 1
-	count, err := o.Update(&banner, "deleted")
+	b.Deleted = 1
+	count, err := o.Update(b, "deleted")
 	if err != nil {
 		return 0, err
 	}
@@ -67,12 +67,12 @@ func DeleteBanner(banner Banner) (int64, error) {
 // 查找banner
 func GetBanner(id int64) (*Banner, error) {
 	o := orm.NewOrm()
-	banner := Banner{Id : id}
-	err := o.Read(&banner)
+	b := Banner{Id : id}
+	err := o.Read(&b)
 	if err != nil {
 		return nil, err
 	}
-	return &banner, nil
+	return &b, nil
 }
 
 // 查询banner
