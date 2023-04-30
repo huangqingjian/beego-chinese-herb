@@ -8,14 +8,14 @@ import (
 
 // 用户
 type User struct {
-	Id         int64		`json:"id" form:"id" orm:"column(id)"`
-	Name       string		`json:"name" form:"name" valid:"Required" orm:"column(name)"`
-	Mobile     string		`json:"mobile" form:"mobile" valid:"Mobile" orm:"column(mobile)"`
-	Email      string		`json:"email" form:"email" valid:"Email" orm:"column(email)"`
-	Password   string		`json:"password" form:"password" orm:"column(password)"`
-	Face       string		`json:"face" form:"face" orm:"column(face)"`
-	Sex        int8			`json:"sex" form:"sex" valid:"Range(1, 2)" orm:"column(sex)"`
-	Desc       string		`json:"desc" form:"desc" orm:"column(desc)"`
+	Id         int64		`json:"id" form:"id" orm:"column(id)"`							 // id
+	Name       string		`json:"name" form:"name" valid:"Required" orm:"column(name)"`    // 姓名
+	Mobile     string		`json:"mobile" form:"mobile" valid:"Mobile" orm:"column(mobile)"`// 手机号
+	Email      string		`json:"email" form:"email" valid:"Email" orm:"column(email)"`	 // 邮箱
+	Password   string		`json:"password" form:"password" orm:"column(password)"`		 // 密码
+	Face       string		`json:"face" form:"face" orm:"column(face)"`					 // 头像
+	Sex        int8			`json:"sex" form:"sex" valid:"Range(1, 2)" orm:"column(sex)"`	 // 性别
+	Desc       string		`json:"desc" form:"desc" orm:"column(desc)"`					 // 描述
 	Base
 }
 

@@ -7,13 +7,13 @@ import (
 
 // banner
 type Banner struct {
-	Id          int64		`json:"id" form:"id" orm:"column(id)"`
-	Title       string		`json:"title" form:"title" valid:"Required" orm:"column(title)"`
-	Url         string		`json:"url" form:"url" valid:"Required" orm:"column(url)"`
-	Link        string		`json:"link" form:"link" orm:"column(link)"`
-	Background  string		`json:"background" form:"background" orm:"column(background)"`
-	Sort        int32		`json:"sort" form:"sort" orm:"column(sort)"`
-	Desc        string		`json:"desc" form:"desc" orm:"column(desc)"`
+	Id          int64		`json:"id" form:"id" orm:"column(id)"`							// id
+	Title       string		`json:"title" form:"title" valid:"Required" orm:"column(title)"`// 标题
+	Url         string		`json:"url" form:"url" valid:"Required" orm:"column(url)"`		// 图片url
+	Link        string		`json:"link" form:"link" orm:"column(link)"`					// 跳转链接
+	Background  string		`json:"background" form:"background" orm:"column(background)"`	// 背景
+	Sort        int32		`json:"sort" form:"sort" orm:"column(sort)"`					// 顺序
+	Desc        string		`json:"desc" form:"desc" orm:"column(desc)"`					// 描述
 	Base
 }
 

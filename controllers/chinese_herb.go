@@ -13,8 +13,8 @@ type ChineseHerbController struct {
 	BaseController
 }
 
-// @Title 查询用户列表
-// @Description 通过条件查询用户列表
+// @Title 查询中药列表
+// @Description 通过条件查询中药列表
 // @param q query string false "中药名"
 // @param type query int64 false "中药类型"
 // @param pageSize query int false "分页大小"

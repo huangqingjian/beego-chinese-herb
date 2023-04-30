@@ -7,16 +7,16 @@ import (
 
 // 药方
 type HerbPharmacy struct {
-	Id          int64		`json:"id"`
-	HerbId      int64		`json:"herbId" valid:"Required" orm:"column(herb_id)"`
-	Content     string		`json:"content"`
+	Id          int64		`json:"id"`												// id
+	HerbId      int64		`json:"herbId" valid:"Required" orm:"column(herb_id)"`  // 中药Id
+	Content     string		`json:"content"`										// 内容
 	Base
 }
 
 // 药方查询
 type HerbPharmacyQuery struct {
-	HerbId      int64
-	HerbIds     []int64
+	HerbId      int64		// 中药Id
+	HerbIds     []int64     // 中药Id（多个）
 }
 
 func init() {

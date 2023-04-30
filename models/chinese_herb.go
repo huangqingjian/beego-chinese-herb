@@ -7,24 +7,24 @@ import (
 
 // 中药
 type ChineseHerb struct {
-	Id          int64		`json:"id" form:"id" orm:"column(id)"`
-	Type        int64		`json:"type" valid:"Required"`
-	Name        string		`json:"name" valid:"Required"`
-	EnName      string		`json:"enName" form:"enName" orm:"column(en_name)"`
-	Alias       string		`json:"alias"`
-	Pic         string		`json:"pic" valid:"Required"`
-	Zwxt        string		`json:"zwxt"`
-	Yybw        string		`json:"yybw"`
-	Cdfb        string		`json:"cdfb"`
-	Csjg        string		`json:"csjg"`
-	Ycxz        string		`json:"ycxz"`
-	Xwgj        string		`json:"xwgj"`
-	Gxzy        string		`json:"gxzy"`
-	Lcyy        string		`json:"lcyy"`
-	Ylyj        string		`json:"ylyj"`
-	Hxcf        string		`json:"hxcf"`
-	Syjj        string		`json:"syjj"`
-	HerbPharmacys []HerbPharmacy `json:"herbPharmacys" orm:"-"`
+	Id          int64		`json:"id" form:"id" orm:"column(id)"`				// id
+	Type        int64		`json:"type" valid:"Required"`						// 类型
+	Name        string		`json:"name" valid:"Required"`						// 名称
+	EnName      string		`json:"enName" form:"enName" orm:"column(en_name)"` // 英文名
+	Alias       string		`json:"alias"`										// 别名
+	Pic         string		`json:"pic" valid:"Required"`						// 图片
+	Zwxt        string		`json:"zwxt"`										// 植物形态
+	Yybw        string		`json:"yybw"`										// 药用部位
+	Cdfb        string		`json:"cdfb"`										// 产地分布
+	Csjg        string		`json:"csjg"`										// 采收加工
+	Ycxz        string		`json:"ycxz"`										// 药材性状
+	Xwgj        string		`json:"xwgj"`										// 性味归经
+	Gxzy        string		`json:"gxzy"`										// 功效与作用
+	Lcyy        string		`json:"lcyy"`										// 临床应用
+	Ylyj        string		`json:"ylyj"`										// 药理研究
+	Hxcf        string		`json:"hxcf"`										// 化学成分
+	Syjj        string		`json:"syjj"`										// 使用禁忌
+	HerbPharmacys []HerbPharmacy `json:"herbPharmacys" orm:"-"`					// 药方
 	Base
 }
 

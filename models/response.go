@@ -2,9 +2,9 @@ package models
 
 // 响应数据
 type Response struct {
-	Code    int			`json:"code"`
-	Message string		`json:"message"`
-	Data    interface{} `json:"data"`
+	Code    int			`json:"code"`	// 响应码
+	Message string		`json:"message"`// 响应信息
+	Data    interface{} `json:"data"`	// 响应数据
 }
 
 // 成功
